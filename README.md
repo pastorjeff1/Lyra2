@@ -34,7 +34,7 @@ Then start, COMMAND (enter) for command prompt..
 then cd\
 cd ai_companion
 Cd lyra2
-lm server start (to connect to LM studio) 
+lms server start (to connect to LM studio) 
 python talk_to_lyra.py
 
 At that point, Robert should be a fairly close relative. 
