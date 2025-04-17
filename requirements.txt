@@ -1,0 +1,49 @@
+LM Studio with a compatible LLM (tested with Gemma3 17GB)
+Python 3.9+ (installation instructions vary by Python version)
+4090
+
+Installation
+Step 1: Install LM Studio
+Download and install LM Studio from lmstudio.ai
+Step 2: Download a Model
+Using LM Studio's model library, download a model like Gemma3 (17GB)
+Step 3: Install Python Dependencies
+For Python 3.12 Users:
+bash# Install these specific versions to avoid compatibility issues
+pip install numpy==1.26.3
+pip install scikit-learn==1.3.2
+pip install torch==2.3.0 --index-url https://download.pytorch.org/whl/cu118
+pip install sentence-transformers==2.3.1
+pip install requests==2.31.0
+For Python 3.9-3.11 Users:
+bashpip install numpy scikit-learn requests
+pip install sentence-transformers
+pip install torch --index-url https://download.pytorch.org/whl/cu118  # For GPU support
+Step 4: Prepare Directory Structure
+Lyra2 expects to store memory files in C:\AI_Companion\Lyra2\. You can change this by modifying the MEMORY_DIR variable in the script.
+Usage
+
+Start LM Studio
+Load your preferred model (e.g., Gemma3)
+Start the LM Studio API server (usually on port 1234)
+Run Lyra2:
+python talk_with_lyra_2.py
+
+
+Common Issues & Troubleshooting
+Harmless Warnings
+You may see warnings like:
+UserWarning: Torch was not compiled with flash attention...
+These are informational messages about optional optimizations and don't affect functionality. You can safely ignore them.
+Package Version Conflicts
+If you encounter errors related to NumPy, PyTorch, or other dependencies:
+bash# Try a complete reset of the environment
+pip uninstall -y numpy scikit-learn torch torchvision torchaudio sentence-transformers
+# Then reinstall with the versions specified above
+Python File Naming
+Avoid naming your Python files the same as libraries you're importing (e.g., don't create files named torch.py, numpy.py, etc.).
+Memory Directory Issues
+If you encounter file permission errors:
+
+Ensure the C:\AI_Companion\Lyra2\ directory exists and is writable
+Or modify the MEMORY_DIR variable to point to a location you have write access to
